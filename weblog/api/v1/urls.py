@@ -1,7 +1,7 @@
-from weblog.views import my_api
+from weblog.views import BlogListApi
 from django.urls import path
 
 
 urlpatterns = [
-    path('list/', my_api, name='blog_list_api')
+    path('list/', BlogListApi, name='blog_list_api')
 ]
