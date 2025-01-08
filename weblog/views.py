@@ -1,11 +1,14 @@
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from .models import Article, Category
 from .serializers import ArticleSerializer
 from rest_framework import status
 
+
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
 def BlogListApi(request):
     if request.method == 'GET':
         articles = Article.objects.all()
